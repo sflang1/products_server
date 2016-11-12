@@ -1,0 +1,62 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+  var socket = io();
+</script>
+<script src="index.js"></script>
+
+<h3>Bienvenido al servidor</h3>
+<p id="info_message" class="message"></p>
+<p id="alert_message" class="alert"></p>
+
+
+<hr/>
+<h4> Consulta de precios </h4>
+<p>Introduzca el código del producto a continuación para consultar su nombre y precio</p>
+<form action="" id="consultar_producto">
+  <table>
+    <tr>
+      <td><label>Código del producto:</label></td>
+      <td><input type="text" name="codigo" value=""></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Consultar" onClick="emitConsultarProducto(event)"></td>
+    </tr>
+</form>
+<table>
+  <thead>
+    <th>Código</th>
+    <th>Nombre</th>
+    <th>Precio</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p id="codigo_consultar_producto"></p></td>
+      <td><p id="nombre_consultar_producto"></p></td>
+      <td><p id="precio_consultar_producto"></p></td>
+    </tr>
+  </tbody>
+</table>
+<hr/>
+
+<h4> Búsqueda de cantidad de productos en el servidor. </h4>
+<form id="consultar_numero_productos">
+  <input type="button" value="Consultar" onClick="emitConsultarNumeroProductos()">
+</form>
+<p>El número de productos actualmente es: <span id="resultado_numero"></span></p>
+<hr/>
+
+
+<h4> Cantidad de productos con precio mayor o igual al introducido </h4>
+<form id="consultar_precio_mayor_o_igual">
+  <table>
+    <tr>
+      <td><label>Precio a buscar:</label></td>
+      <td><input type="text" name="precio" value=""/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="Consultar" onClick="emitConsultarPrecioMayorOIgual(event)"></td>
+    </tr>
+  </table>
+  <p>El número de productos con precio mayor o igual a este es: <span id="resultado_consulta_precio"></span></p>
+</form>
