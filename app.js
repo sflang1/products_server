@@ -91,6 +91,9 @@ io.on('connection', function(socket) {
       socket.emit("resultado_consulta_precio", counter);
     });
   });
+  socket.on("cerrar_servidor", function(){
+    process.exit();
+  });
 });
 // Initialize server
 http.listen(3000, function(){

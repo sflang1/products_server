@@ -20,6 +20,10 @@ function emitConsultarPrecioMayorOIgual(event) {
   $('#resultado_consulta_precio').html('');
 }
 
+function emitCerrarServidor()
+{
+  socket.emit("cerrar_servidor");
+}
 
 // Escuchar al evento producto consultado
 socket.on("producto_consultado", function(exists, product){
